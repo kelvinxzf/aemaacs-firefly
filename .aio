@@ -1,0 +1,34 @@
+{
+  "project": {
+    "id": "4566206088344577524",
+    "name": "EquivalentOrangePig",
+    "title": "Kelvin Firefly Test",
+    "org": {
+      "id": "258616",
+      "name": "Adobe Consulting - AEM Americas",
+      "ims_org_id": "2FBC7B975CFE21C40A495FBB@AdobeOrg"
+    },
+    "workspace": {
+      "id": "4566206088344578437",
+      "name": "Development",
+      "title": "Development",
+      "action_url": "https://258616-equivalentorangepig-development.adobeioruntime.net",
+      "app_url": "https://258616-equivalentorangepig-development.adobeio-static.net",
+      "details": {
+        "credentials": [
+          {
+            "id": "134792",
+            "name": "Kelvin_Firefly_Test_J_1611099912441",
+            "integration_type": "service"
+          }
+        ],
+        "services": [
+          {
+            "code": "CloudIntegrationSDK",
+            "name": "I/O Events"
+          }
+        ]
+      }
+    }
+  }
+}
