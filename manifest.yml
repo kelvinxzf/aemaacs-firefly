@@ -68,7 +68,7 @@ packages:
           customAzureStorageKey : $CUSTOM_AZURE_STORAGEKEY
           customAzureContainerName : $CUSTOM_AZURE_CONTAINERNAME
         annotations:
-          require-adobe-auth: false
+          require-adobe-auth: true
           final: true
         limits:
           timeout: 600000
