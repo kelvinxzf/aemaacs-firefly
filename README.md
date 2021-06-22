@@ -29,11 +29,29 @@ local serverless stack and also run your actions locally use the `aio app run --
 ### `.env`
 
 ```bash
-# This file must not be committed to source control
+# Marketo Rest endpoint host, not the Marketo UI host
+MARKETO_REST_HOST=your_marketo_rest_ep_host
+MARKETO_CLIENT_ID=your_marketo_client_id
+MARKETO_CLIENT_SECRET=your_marketo_client_secret
+# Marketo Folder that accepts assets from AEM
+MARKETO_FOLDER_ID=your_marketo_folder_id_that accepts_assets_from_aem
 
-## please provide your Adobe I/O Runtime credentials
-# AIO_RUNTIME_AUTH=
-# AIO_RUNTIME_NAMESPACE=
+# AEMaaCS info
+AEM_AUTHOR_HOST=aemaacs_author_host
+# refer this to about how to get AEMaaCS service credentials https://experienceleague.adobe.com/docs/experience-manager-cloud-service/implementing/developing/generating-access-tokens-for-server-side-apis.html?lang=en
+AEM_SERVICE_CREDENTIALS=aemaacs_service_credentials_got_from_developer_console_in_one_line
+
+# Azure storage info
+CUSTOM_AZURE_STORAGEACCOUNT=your_custom_azure_storage_account
+CUSTOM_AZURE_STORAGEKEY=your_custom_azure_storage_key
+CUSTOM_AZURE_CONTAINERNAME=your_custom_azure_storage_container_name
+
+# Journaling
+# your private key associated with your I/O project's JWT service account. You may create a new pair of private/public keys from Service Account (JWT). Make sure you fill newline break with \n and don't forget the double quotes around it
+PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nmy\nprivate\nkey\n-----END PRIVATE KEY-----"
+JOURNALING_URL=the_journaling_endpoint_you_get_from_I/O_event_registration
+# max numbder of event batches to be fetched per activation/execution
+MAX_EVENTS_IN_BATCH=5
 ```
 
 ### `manifest.yml`
