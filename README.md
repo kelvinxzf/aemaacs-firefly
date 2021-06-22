@@ -1,4 +1,4 @@
-# EquivalentOrangePig
+# AEM assets export via webhook or journaling
 
 Welcome to my Adobe I/O Application!
 
