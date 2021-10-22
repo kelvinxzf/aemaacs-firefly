@@ -2,86 +2,86 @@ application:
   hostname: 'assetexport'
   runtimeManifest:
     packages:
-  __APP_PACKAGE__:
-    license: Apache-2.0
-    actions:
-      generic:
-        function: actions/generic/index.js
-        web: 'yes'
-        runtime: 'nodejs:12'
-        inputs:
-          LOG_LEVEL: debug
-        annotations:
-          require-adobe-auth: true
-          final: true
-      publish-events:
-        function: actions/publish-events/index.js
-        web: 'yes'
-        runtime: 'nodejs:12'
-        inputs:
-          LOG_LEVEL: debug
-          apiKey: $SERVICE_API_KEY
-        annotations:
-          require-adobe-auth: true
-          final: true
-      aem-file-realtime-exporter:
-        function: actions/aem-file-export/event-handler.js
-        web: 'yes'
-        runtime: 'nodejs:12'
-        inputs:
-          LOG_LEVEL: debug
-          marketoRestHost : $MARKETO_REST_HOST
-          marketoClientId : $MARKETO_CLIENT_ID
-          marketoClientSecret : $MARKETO_CLIENT_SECRET
-          marketoFolderId : $MARKETO_FOLDER_ID
-          aemAuthorHost : $AEM_AUTHOR_HOST
-          aemServiceCredentials : $AEM_SERVICE_CREDENTIALS
-          customAzureStorageAccount : $CUSTOM_AZURE_STORAGEACCOUNT
-          customAzureStorageKey : $CUSTOM_AZURE_STORAGEKEY
-          customAzureContainerName : $CUSTOM_AZURE_CONTAINERNAME
-        limits:
-          timeout: 600000
-          memorySize: 2048
-        annotations:
-          require-adobe-auth: true
-          final: true
-      aem-file-export-journaling:
-        function: actions/aem-file-journal/journal-consumer.js
-        web: 'yes'
-        runtime: 'nodejs:12'
-        inputs:
-          LOG_LEVEL: debug
-          aemAuthorHost : $AEM_AUTHOR_HOST
-          aemServiceCredentials : $AEM_SERVICE_CREDENTIALS
-          apiKey: $SERVICE_API_KEY
-          client_id: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_client__id
-          client_secret: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_client__secret
-          technical_account_email: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_technical__account__email
-          technical_account_id: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_technical__account__id
-          ims_org_id: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_ims__org__id
-          meta_scopes: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_meta__scopes
-          private_key: $PRIVATE_KEY
-          journaling_url: $JOURNALING_URL
-          max_events_in_batch: $MAX_EVENTS_IN_BATCH
-          marketoRestHost : $MARKETO_REST_HOST
-          marketoClientId : $MARKETO_CLIENT_ID
-          marketoClientSecret : $MARKETO_CLIENT_SECRET
-          marketoFolderId : $MARKETO_FOLDER_ID
-          customAzureStorageAccount : $CUSTOM_AZURE_STORAGEACCOUNT
-          customAzureStorageKey : $CUSTOM_AZURE_STORAGEKEY
-          customAzureContainerName : $CUSTOM_AZURE_CONTAINERNAME
-        annotations:
-          require-adobe-auth: true
-          final: true
-        limits:
-          timeout: 600000
-          memorySize: 2048
-    triggers:
-      everyHour:
-        feed: /whisk.system/alarms/interval
-        inputs: 
-          minutes: 60
-    rules:
-      everyHourRule:
-        trigger: everyHour
-        action: aem-file-export-journaling
+      __APP_PACKAGE__:
+        license: Apache-2.0
+        actions:
+          generic:
+            function: actions/generic/index.js
+            web: 'yes'
+            runtime: 'nodejs:12'
+            inputs:
+              LOG_LEVEL: debug
+            annotations:
+              require-adobe-auth: true
+              final: true
+          publish-events:
+            function: actions/publish-events/index.js
+            web: 'yes'
+            runtime: 'nodejs:12'
+            inputs:
+              LOG_LEVEL: debug
+              apiKey: $SERVICE_API_KEY
+            annotations:
+              require-adobe-auth: true
+              final: true
+          aem-file-realtime-exporter:
+            function: actions/aem-file-export/event-handler.js
+            web: 'yes'
+            runtime: 'nodejs:12'
+            inputs:
+              LOG_LEVEL: debug
+              marketoRestHost : $MARKETO_REST_HOST
+              marketoClientId : $MARKETO_CLIENT_ID
+              marketoClientSecret : $MARKETO_CLIENT_SECRET
+              marketoFolderId : $MARKETO_FOLDER_ID
+              aemAuthorHost : $AEM_AUTHOR_HOST
+              aemServiceCredentials : $AEM_SERVICE_CREDENTIALS
+              customAzureStorageAccount : $CUSTOM_AZURE_STORAGEACCOUNT
+              customAzureStorageKey : $CUSTOM_AZURE_STORAGEKEY
+              customAzureContainerName : $CUSTOM_AZURE_CONTAINERNAME
+            limits:
+              timeout: 600000
+              memorySize: 2048
+            annotations:
+              require-adobe-auth: true
+              final: true
+          aem-file-export-journaling:
+            function: actions/aem-file-journal/journal-consumer.js
+            web: 'yes'
+            runtime: 'nodejs:12'
+            inputs:
+              LOG_LEVEL: debug
+              aemAuthorHost : $AEM_AUTHOR_HOST
+              aemServiceCredentials : $AEM_SERVICE_CREDENTIALS
+              apiKey: $SERVICE_API_KEY
+              client_id: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_client__id
+              client_secret: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_client__secret
+              technical_account_email: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_technical__account__email
+              technical_account_id: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_technical__account__id
+              ims_org_id: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_ims__org__id
+              meta_scopes: $AIO_ims_contexts_Kelvin__Firefly__Test__J__1611099912441_meta__scopes
+              private_key: $PRIVATE_KEY
+              journaling_url: $JOURNALING_URL
+              max_events_in_batch: $MAX_EVENTS_IN_BATCH
+              marketoRestHost : $MARKETO_REST_HOST
+              marketoClientId : $MARKETO_CLIENT_ID
+              marketoClientSecret : $MARKETO_CLIENT_SECRET
+              marketoFolderId : $MARKETO_FOLDER_ID
+              customAzureStorageAccount : $CUSTOM_AZURE_STORAGEACCOUNT
+              customAzureStorageKey : $CUSTOM_AZURE_STORAGEKEY
+              customAzureContainerName : $CUSTOM_AZURE_CONTAINERNAME
+            annotations:
+              require-adobe-auth: true
+              final: true
+            limits:
+              timeout: 600000
+              memorySize: 2048
+        triggers:
+          everyHour:
+            feed: /whisk.system/alarms/interval
+            inputs: 
+              minutes: 60
+        rules:
+          everyHourRule:
+            trigger: everyHour
+            action: aem-file-export-journaling
